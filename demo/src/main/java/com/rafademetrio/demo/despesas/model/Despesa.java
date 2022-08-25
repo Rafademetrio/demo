@@ -1,12 +1,13 @@
-package com.rafademetrio.demo.receitas.entity;
+package com.rafademetrio.demo.despesas.model;
 
-import com.rafademetrio.demo.usuario.entity.Usuario;
+import com.rafademetrio.demo.usuario.model.Usuario;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Receita {
+public class Despesa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -19,13 +20,13 @@ public class Receita {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    public Receita(double valor, LocalDate data, Usuario usuario) {
+    public Despesa(double valor, LocalDate data, Usuario usuario) {
         this.valor = valor;
         this.data = data;
         this.usuario = usuario;
     }
 
-    public Receita() {
+    public Despesa() {
     }
 
     public int getId() {
@@ -59,5 +60,4 @@ public class Receita {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 }
